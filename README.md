@@ -1,4 +1,4 @@
-## Build Blog CMS (Content Management System) with Laravel 7
+## Build Booking Meeting Room
 
 ## Clone this repo
 ```
