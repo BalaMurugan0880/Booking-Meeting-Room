@@ -22,10 +22,17 @@ Route::get('add', function () {
     return view('Booking/add');
 });
 
+Route::get('bookedpage', function () {
+    return view('Booking/bookedpage');
+});
+
+
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/bookedpage', [App\Http\Controllers\HomeController::class, 'userBooked'])->middleware('verified');
+
 Route::Post('store-booking', [App\Http\Controllers\HomeController::class, 'store'])->middleware('verified');
 
 Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);

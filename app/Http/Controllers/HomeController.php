@@ -7,6 +7,8 @@ use App\Models\Books;
 use App\Models\User;
 use Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 class HomeController extends Controller
 {
     /**
@@ -29,6 +31,13 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function userBooked()
+    {
+        return view('Booking/bookedpage');
+    }
+
+
+
      public function store(Request $request){
 
         $booknow = new Books();
@@ -42,10 +51,39 @@ class HomeController extends Controller
         // $booknow->time = $request->input('time');
         // $booknow->tables_id = $request->input('table');
 
+        $date = $request->input('date1');
+        // $time = $request->input('time');
+        $hours = $request->input('hours');
+        // $person = $request->input('person');
+        // $table = $request->input('table');
+        $location = $request->input('gridRadios');
+
 
         $booknow->save();
-        Session::flash('message', 'Slot Added successfully');
-        return redirect()->to('bookingview');
+
+        $userEmail = Auth::user()->email;
+        $userName = Auth::user()->name;
+
+
+         $data = array(
+            'name'   =>   $userName,
+            'email'   =>   $userEmail,
+            'location'   =>   $request->gridRadios,
+            'date'   =>   $request->date1,
+            'hours'   =>   $request->hours,
+        );
+
+         Mail::to('bacwebmasters@gmail.com')->send(new SendMail($data));
+         Mail::to($userEmail)->send(new SendMail($data));
+
+        Session::flash('message', 'You Have Booked Successfully');
+        Session::flash('date', $date);
+        // Session::flash('time', $time);
+        Session::flash('hours', $hours);
+        // Session::flash('person', $person);
+        // Session::flash('table', $table);
+        Session::flash('location', $location);
+        return redirect()->to('bookedpage');
 
     }
 
@@ -53,6 +91,8 @@ class HomeController extends Controller
 
             $request->validate([
             'date1' => 'required',
+            'hours' => 'required',
+
             // 'time' => 'required',
 
         ]);

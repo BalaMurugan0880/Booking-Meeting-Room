@@ -63,8 +63,8 @@
                           <div class="form-group row">
                             <label for="hours" class="col-sm-2 col-form-label">Hours</label>
                             <div class="col-sm-10">
-                                  <select class="form-control" id="select1" name="hours" onchange="myFunction()">
-                             <option  selected>Select Hours</option>
+                                  <select class="form-control" id="select1" name="hours" onchange="myFunction()" required>
+                             <option  selected disabled>Select Hours</option>
                                {{--             <option value="1 Hours">1 Hours</option>
                                     <option value="2 Hours">2 Hours</option> --}}
                                     <option value="3 Hours">3 Hours</option>
