@@ -14,8 +14,9 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+        return view('home');
+    })->middleware('auth');
+
 
 Route::get('add', function () {
     return view('Booking/add');
@@ -25,11 +26,11 @@ Route::get('add', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
-Route::Post('store-booking', [App\Http\Controllers\HomeController::class, 'store']);
+Route::Post('store-booking', [App\Http\Controllers\HomeController::class, 'store'])->middleware('verified');
 
 Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::get('bookingview', [App\Http\Controllers\BookNowController::class, 'index'])->name('bookingview')->middleware('verified');
-Route::Post('checkAvailablity', [App\Http\Controllers\HomeController::class, 'checkAvailablity'])->name('checkAvailablity');
+Route::Post('checkAvailablity', [App\Http\Controllers\HomeController::class, 'checkAvailablity'])->name('checkAvailablity')->middleware('verified');
 

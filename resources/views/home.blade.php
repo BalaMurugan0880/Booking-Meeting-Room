@@ -42,18 +42,18 @@
                                   </div>
                                 </div>
                           </fieldset>
-                          <div class="form-group row" id="person1">
+{{--                           <div class="form-group row" id="person1">
                             <label for="person" class="col-sm-2 col-form-label">Person</label>
                             <div class="col-sm-10">
                               <input type="number" class="form-control" name="person" id="person" placeholder="How Many Person" min="1" max="3">
                             </div>
-                          </div>
-                            <div class="form-group row" id="tablerow">
+                          </div> --}}
+{{--                             <div class="form-group row" id="tablerow">
                             <label for="table" class="col-sm-2 col-form-label">Table No</label>
                             <div class="col-sm-10">
                               <input type="number" class="form-control" name="table" id="table" placeholder="Which Table" min="1" max="9">
                             </div>
-                          </div>
+                          </div> --}}
                           <div class="form-group row">
                             <label for="date" class="col-sm-2 col-form-label">Date</label>
                             <div class="col-sm-10">
@@ -72,27 +72,13 @@
                           </div>
                       </div>
                       
-                      <div class="form-group row" id="time1">
+                     {{-- <div class="form-group row" id="time3">
                             <label for="Time" class="col-sm-2 col-form-label">Time</label>
                             <div class="col-sm-10">
-                                  <select class="form-control" id="Time" name="time">
-                                    <option  selected>Select Time</option>
-                                    <option value="9am-10am">9am-10am</option>
-                                    <option value="10am-11am">10am-11am</option>
-                                    <option value="11am-12pm">11am-12pm</option>
-                                    <option value="13pm-14pm">13pm-14pm</option>
-                                    <option value="14pm-15pm">14pm-15pm</option>
-                                    <option value="15pm-16pm">15pm-16pm</option>
-                                    <option value="16pm-17pm">16pm-17pm</option>
-                                    <option value="17pm-18pm">17pm-18pm</option>
-                                    <option value="18pm-19pm">18pm-19pm</option>
-                                    <option value="19pm-20pm">19pm-20pm</option>
-
-
-                                  </select>
+                                  <input type="time" id="time" name="time" min="09:00" max="18:00" required>
                           </div>
                       </div>
-                      <div class="form-group row" id="time2">
+ --}}                     {{--   <div class="form-group row" id="time2">
                             <label for="Time" class="col-sm-2 col-form-label">Time</label>
                             <div class="col-sm-10">
                                   <select class="form-control" id="Time" name="time">
@@ -119,7 +105,7 @@
 
                                   </select>
                           </div>
-                      </div>
+                      </div> --}}
                       <div class="form-group row" id="checkAvailable">
                             <label for="Time" class="col-sm-2 col-form-label">Check Slot</label>
                             <div class="col-sm-10">

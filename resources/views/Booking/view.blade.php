@@ -16,11 +16,11 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Location</th>
-      <th scope="col">Person</th>
+      {{-- <th scope="col">Person</th> --}}
       <th scope="col">Date</th>
       <th scope="col">Hours</th>
-      <th scope="col">Time</th>
-      <th scope="col">Table No</th>
+      {{-- <th scope="col">Time</th> --}}
+      {{-- <th scope="col">Table No</th> --}}
     </tr>
   </thead>
   <tbody>
@@ -29,11 +29,11 @@
       <td>{{$book->id}}</td>
       <td>{{$book->name}}</td>
       <td>{{$book->location}}</td>
-      <td>{{$book->person}}</td>
+      {{-- <td>{{$book->person}}</td> --}}
       <td>{{$book->date}}</td>
       <td>{{$book->hours}}</td>
-      <td>{{$book->time}}</td>
-      <td>{{$book->tables_id}}</td>
+      {{-- <td>{{$book->time}}</td> --}}
+      {{-- <td>{{$book->tables_id}}</td> --}}
     </tr>
     @endforeach
   </tbody>

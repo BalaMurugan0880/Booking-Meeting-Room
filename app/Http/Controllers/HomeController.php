@@ -34,13 +34,13 @@ class HomeController extends Controller
         $booknow = new Books();
 
         $booknow->location = $request->input('gridRadios');
-        $booknow->person = $request->input('person');
+        // $booknow->person = $request->input('person');
         $booknow->user_id = Auth::user()->id;
         $booknow->name = Auth::user()->name;
         $booknow->date = $request->input('date1');
         $booknow->hours = $request->input('hours');
-        $booknow->time = $request->input('time');
-        $booknow->tables_id = $request->input('table');
+        // $booknow->time = $request->input('time');
+        // $booknow->tables_id = $request->input('table');
 
 
         $booknow->save();
@@ -53,21 +53,21 @@ class HomeController extends Controller
 
             $request->validate([
             'date1' => 'required',
-            'time' => 'required',
+            // 'time' => 'required',
 
         ]);
 
         $date = $request->input('date1');
-        $time = $request->input('time');
+        // $time = $request->input('time');
         $hours = $request->input('hours');
-        $person = $request->input('person');
-        $table = $request->input('table');
+        // $person = $request->input('person');
+        // $table = $request->input('table');
         $location = $request->input('gridRadios');
 
 
 
 
-        $checkNow = Books::where('date',$date)->where('time', $time)->count();
+        $checkNow = Books::where(['location' => $location,'date' => $date])->count();
         //$checkNow2 = Books::where(['tables_id' => 1,'date' => $date,'time' => $time])->exists();
         //$checkNow3 = Books::where(['tables' => 2,'date' => $date,'time' => $time])->exists();
         // $checkNow4 = Books::where(['date' => $date,'time' => $time,'table' => 3])->count();
@@ -98,12 +98,12 @@ class HomeController extends Controller
 
 
 
-            $bookavail =Books::where(['tables_id' => $table,'date' => $date,'time' => $time])->count();
+            $bookavail =Books::where(['location' => $location,'date' => $date])->count();
 
 
 
 
-            if ($bookavail > 0) {
+            if ($bookavail > 127) {
 
   Session::flash('message', 'Slot Has Been Full');
                     
@@ -117,10 +117,10 @@ class HomeController extends Controller
 
                  Session::flash('message', 'Slot Available');
                             Session::flash('date', $date);
-                            Session::flash('time', $time);
+                            // Session::flash('time', $time);
                             Session::flash('hours', $hours);
-                            Session::flash('person', $person);
-                            Session::flash('table', $table);
+                            // Session::flash('person', $person);
+                            // Session::flash('table', $table);
                             Session::flash('location', $location);
 
 
@@ -133,16 +133,16 @@ class HomeController extends Controller
 
             
         }elseif($location == 'The Hub'){
-                if($checkNow == 2){
+                if($checkNow > 100){
             Session::flash('message', 'Slot Has Been Full');
             return redirect()->to('home');
             }else{
                 Session::flash('message', 'Slot Available');
                 Session::flash('date', $date);
-                Session::flash('time', $time);
+                // Session::flash('time', $time);
                 Session::flash('hours', $hours);
-                Session::flash('person', $person);
-                Session::flash('table', $table);
+                // Session::flash('person', $person);
+                // Session::flash('table', $table);
                 Session::flash('location', $location);
 
 

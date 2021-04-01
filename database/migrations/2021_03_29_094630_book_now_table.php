@@ -18,11 +18,11 @@ class BookNowTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('location');
-            $table->string('person');
+            // $table->string('person');
             $table->string('date');
             $table->string('hours');
-            $table->string('time');
-            $table->string('tables_id')->nullable();
+            // $table->string('time');
+            // $table->string('tables_id')->nullable();
             $table->timestamps();
         });
     }

@@ -27,11 +27,11 @@
                            <div class="form-group row">
                            	<div class="col-sm-10">
                            		<h2>Location: {{ Session('location') }}</h2>
-                           		<h2>Person: {{ Session('person') }}</h2>
+                           		{{-- <h2>Person: {{ Session('person') }}</h2> --}}
                            		<h2>Date: {{ Session('date') }}</h2>
-                           		<h2>Time: {{ Session('time') }}</h2>
+                           		{{-- <h2>Time: {{ Session('time') }}</h2> --}}
                            		<h2>Hours: {{ Session('hours') }}</h2>
-                           		<h2>Table: {{ Session('table') }}</h2>
+                           		{{-- <h2>Table: {{ Session('table') }}</h2> --}}
 
                            	</div>
                            </div>

@@ -10,8 +10,7 @@ class Books extends Model
    
 
      protected $fillable = [
-        'user_id','name', 'location', 'person', 'date', 'hours','time','table',
-    ];
+        'user_id','name', 'location', 'date', 'hours'];
 
      public function User()
     {
